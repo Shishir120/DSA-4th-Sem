@@ -1,4 +1,5 @@
 // Doubly Linked List
+// Position index starts from 0
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -196,8 +197,14 @@ void deletionAtPosition() {
                 return;
             }
         }
-        ptr->prev->next = ptr->next;
-        ptr->next->prev = ptr->prev;
+        if (ptr->next == NULL)
+        {
+            ptr->prev->next = NULL;
+        } else {
+            ptr->prev->next = ptr->next;
+            ptr->next->prev = ptr->prev;
+        }
+        
         printf("\nDeleted data is: %d", ptr->data);
     }
     free(ptr);
