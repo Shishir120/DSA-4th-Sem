@@ -114,12 +114,10 @@ void insertionAtPosition() {
             }
         }
         printf("\nExited for loop");
-        if (ptr == head)
-        {
-            newNode->next = ptr->next;
-            newNode->prev = ptr;
+        if (ptr->next == NULL)
+        { // Special case for inserting at the end
             ptr->next = newNode;
-
+            newNode->prev = ptr;
         } else {
             newNode->prev = ptr;
             newNode->next = ptr->next;
